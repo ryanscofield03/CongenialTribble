@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://1ynaul3jtc7g"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_5g88w"]
+[ext_resource type="PackedScene" uid="uid://2n5u0yi6cls4" path="res://game_character.glb" id="2_6c5q2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2ep2"]
+radius = 0.761141
+height = 3.08678
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59891, 0)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_5g88w")
+
+[node name="RayCastPickup" type="RayCast3D" parent="."]
+target_position = Vector3(5, 0, 5)
+collision_mask = 4
+debug_shape_custom_color = Color(0.877346, 3.87453e-06, 1.2514e-06, 1)
+debug_shape_thickness = 5
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79135, 0)
+shape = SubResource("CapsuleShape3D_r2ep2")
+
+[node name="game_character" parent="PlayerCollision" instance=ExtResource("2_6c5q2")]
