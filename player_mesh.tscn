@@ -21,5 +21,3 @@ bones/17/rotation = Quaternion(0.000811682, -2.87353e-08, 1, -0.000165552)
 bones/18/rotation = Quaternion(-4.34009e-09, 2.25087e-11, 6.40352e-11, 1)
 bones/19/rotation = Quaternion(0.702834, -7.36152e-08, -0.00114383, 0.711353)
 bones/20/rotation = Quaternion(3.172e-13, 3.64153e-12, -5.81909e-11, 1)
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
