@@ -36,10 +36,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		current_animation = "Idle"
 		
-	if Input.is_action_just_pressed("pickup"):
+	if Input.is_action_just_pressed("pickup") && $PlayerCollision/PlayerMesh/RayCastPickup.is_colliding():
 		current_animation = "Pickup"
-		if $RayCastPickup.is_colliding():
-			print("Handle Pickup")
+		handle_pickup()
 	
 	$PlayerCollision/PlayerMesh.rotation.y = lerp_angle($PlayerCollision/PlayerMesh.rotation.y, atan2(last_direction.x, last_direction.z), delta * ROTATION_SPEED)
 	handle_animation()
@@ -53,3 +52,6 @@ func handle_animation():
 		elif current_animation == "Pickup":
 			animation_player.play("Pickup")
 			$PlayerCollision/PlayerMesh.pickup_anim_running = true
+			
+func handle_pickup():
+	print("pickup")

@@ -14,10 +14,6 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_5g88w")
 
-[node name="RayCastPickup" type="RayCast3D" parent="."]
-target_position = Vector3(5, 0, 5)
-collision_mask = 4
-
 [node name="PlayerCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.235777, 0)
 shape = SubResource("CapsuleShape3D_r2ep2")
@@ -25,3 +21,8 @@ shape = SubResource("CapsuleShape3D_r2ep2")
 [node name="PlayerMesh" parent="PlayerCollision" instance=ExtResource("2_6c5q2")]
 transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0, -1.6335, 0)
 script = ExtResource("3_gh2kf")
+
+[node name="RayCastPickup" type="RayCast3D" parent="PlayerCollision/PlayerMesh"]
+transform = Transform3D(0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, 0.141421, 0, 0.650319, 0)
+target_position = Vector3(5, 0, 5)
+collision_mask = 4
